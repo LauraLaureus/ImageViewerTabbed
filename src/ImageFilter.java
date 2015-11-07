@@ -13,7 +13,10 @@ public class ImageFilter extends javax.swing.filechooser.FileFilter {
             return true;
         }
         String name = f.getName();
-        String extension = name.substring(name.indexOf('.'));
+        int index = name.indexOf('.');
+        if(index == -1)return false;
+        String extension = name.substring(index);
+        
         return extension.equalsIgnoreCase(".jpg")
                 || extension.equalsIgnoreCase(".jpeg")
                 || extension.equalsIgnoreCase(".png")
